@@ -1,0 +1,15 @@
+[client]
+showSidebarNavigation = true
+
+[server]
+port = 8502
+headless = true
+runOnSave = true
+fileWatcherType = "poll"
+
+[theme]
+primaryColor = "#b76e79"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#e3e5e8"
+textColor = "#252525"
+font = "sans serif"
