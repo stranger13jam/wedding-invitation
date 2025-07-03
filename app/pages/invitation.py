@@ -1,10 +1,6 @@
 from streamlit_extras.let_it_rain import rain
 
-from pages.greeting import welcome
 from pages.blocks.invitation import title, countdown, details, schedule, dresscode, extra_details, questionnaire, contacts
-
-
-# welcome()
 
 
 title.render()

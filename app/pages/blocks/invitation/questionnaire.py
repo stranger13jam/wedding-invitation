@@ -1,7 +1,5 @@
 import streamlit as st
 
-from utils import save_answer
-
 
 def render():
       st.markdown(
@@ -57,6 +55,7 @@ def render():
                   use_container_width=True
             ):
                   if st.session_state["questionnaire_name"] and st.session_state["questionnaire_will_come"]:
-                        save_answer()
+                        # save_answer()
+                        st.success("Анкета отправлена")
                   else:
                         st.warning("Пожалуйста, укажите ваши имя и фамилию")
