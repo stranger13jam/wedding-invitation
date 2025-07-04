@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Приглашение на свадьбу</title>
+      <style>
+            /* body {
+                  margin: 0;
+                  padding: 0;
+                  overflow: hidden;
+                  background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  height: 100vh;
+                  position: relative;
+            } */
+
+            /* h1 {
+                  position: relative;
+                  z-index: 10;
+                  text-align: center;
+                  top: 40vh;
+                  font-size: 3rem;
+                  color: #d6336c;
+                  color: #252525
+            } */
+
+            /* h4 {
+                  position: relative;
+                  z-index: 10;
+                  top: 40vh;
+                  text-align: center;
+                  font-weight: bold;
+                  color: #b76e79;
+                  margin: 0;
+            } */
+
+            /* .row {
+                  display: flex;
+            } */
+
+            /* .column {
+                  flex: 50%;
+            } */
+
+            /* img {
+                  top: 400vh;
+                  width: 50%;
+                  height: auto;
+                  border-radius: 16px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  object-fit: cover;
+            } */
+
+            /* img {
+                  width: 50%;
+                  max-width: 300px;
+                  height: auto;
+                  border-radius: 16px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                  margin: 0 auto;
+                  display: block;          Центрирование
+            } */
+
+            /* @media screen and (max-width: 600px) {
+                  .column {
+                        width: 100%;
+                  }
+            } */
+
+            /* .falling-container {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  pointer-events: none;
+                  overflow: hidden;
+                  z-index: 1;
+            } */
+
+            /* .heart {
+                  position: absolute;
+                  top: -50px;
+                  font-size: 32px;
+                  animation-name: fall;
+                  animation-timing-function: linear;
+                  animation-iteration-count: infinite;
+            } */
+
+            /* @keyframes fall {
+                  0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 1;
+                  }
+                  100% {
+                        transform: translateY(100vh) rotate(360deg);
+                        opacity: 0;
+                  }
+            } */
+      </style>
+</head>
+<body>
+      <h1>Приглашение на свадьбу</h1>
+      <div class="falling-container" id="falling"></div>
+
+      <div>
+            <h1>Мы женимся!</h1>
+            <h3>19 октября 2025 года</h3>
+            <h1>👰🏻🤵🏻</h1>
+      </div>
+
+      <div>
+            <img src="photo.jpg">
+      </div>
+
+      <div>
+            <!-- <h3>И хотим пригласить <span style='color: #B76E79;'>тебя</span> разделить с нами радость от этого события</h3> -->
+            <h3>И хотим пригласить тебя разделить с нами радость от этого события</h3>
+            <h3>🪩🫧🍸🤍🥂🫧✧˖°</h3>
+      </div>
+
+      <div>
+            <h1>До свадьбы осталось</h1>
+            <div>
+                  <div>
+                        <div>{days}</div>
+                        <div>дней</div>
+                  </div>
+                  <div>
+                        <div>{hours:02}</div>
+                        <div>часов</div>
+                  </div>
+                  <div>
+                        <div>{minutes:02}</div>
+                        <div>минут</div>
+                  </div>
+                  <div>
+                        <div>{seconds:02}</div>
+                        <div>секунд</div>
+                  </div>
+            </div>
+      </div>
+
+      <div>
+            <h1>Где и когда</h1>
+
+            <div>
+                  <strong>Усадьба «Лесной берег»</strong>
+                  <br>
+                  <strong>Адрес</strong>: город Москва, улица Свободы, дом 78Б, строение 1
+                  <br>
+                  <strong>Координаты</strong>: 55.876142, 37.436041
+            </div>
+
+            <table>
+                  <caption>Октябрь 2025</caption>
+                  <tr>
+                        <th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th>
+                  </tr>
+                  <tr>
+                        <td class="empty"></td><td class="empty"></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+                  </tr>
+                  <tr>
+                        <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+                  </tr>
+                  <tr>
+                        <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td class="highlight">19</td>
+                  </tr>
+                  <tr>
+                        <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+                  </tr>
+                  <tr>
+                        <td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td class="empty"></td><td class="empty"></td>
+                  </tr>
+            </table>
+
+            <caption>19 октября 2025 года - сохраняем дату</caption>
+
+            <a href="https://yandex.ru/maps/-/CHgeN28N">Как проехать</a>
+      </div>
+
+      <div>
+            <h1>План дня</h1>
+
+            <div class="stepper">
+                  <div class="step">
+                        <div class="icon">{step["icon"]}</div>
+                        <div class="time">{step["time"]}</div>
+                        <div class="desc">{step["desc"]}</div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="step">
+                        <div class="icon">{step["icon"]}</div>
+                        <div class="time">{step["time"]}</div>
+                        <div class="desc">{step["desc"]}</div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="step">
+                        <div class="icon">{step["icon"]}</div>
+                        <div class="time">{step["time"]}</div>
+                        <div class="desc">{step["desc"]}</div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="step">
+                        <div class="icon">{step["icon"]}</div>
+                        <div class="time">{step["time"]}</div>
+                        <div class="desc">{step["desc"]}</div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="step">
+                        <div class="icon">{step["icon"]}</div>
+                        <div class="time">{step["time"]}</div>
+                        <div class="desc">{step["desc"]}</div>
+                  </div>
+            </div>
+      </div>
+
+      <div>
+            <h1>Дресс-код</h1>
+
+            <div class="dresscode">
+                  <div class="colors">
+                        <div class="item">
+                              <div class="circle" style="background-color: #ffffff;"></div>
+                              <div>name</div>
+                        </div>
+                  </div>
+            </div>
+
+            <div>
+                  Наш дресс-код в пастельных тонах.
+                  Просим воздержаться от белого, чёрного и красного цветов.
+                  <br/>
+                  А ниже - цветовая гамма для вдохновения.
+            </div>
+
+            <div>
+                  Но самое главное - прихватите с собой хорошее настроение!
+            </div>
+      </div>
+
+      <div>
+            <h1>Детали</h1>
+            <div>
+                  Здесь будут какие-то детали по нашему мероприятию
+            </div>
+      </div>
+
+      <div>
+            <h1>Анкета гостя</h1>
+
+            <iframe width="640" height="600" frameborder="0" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSey60ENX0HRIQNg0ZWG3ghQu0D5wF-We-lrITbR5IZVhZ9kaA/viewform?embedded=true">
+                  Загрузка…
+            </iframe>
+      </div>
+
+      <div>
+            <h1>Контакты</h1>
+            <div>
+                  <caption>Вы всегда можете связаться с нами, чтобы задать вопросы, не терпящие отлагательств, или позвать на чашечку чая:</caption>
+            </div>
+            <div class="contacts">
+                  <div class="row">
+                        <div class="info">
+                              <div class="name">Аня</div>
+                              <div class="phone">+7 916 388 02 33</div>
+                        </div>
+                        <div class="actions">
+                              <a href="https://t.me/annajkf" target="_blank" title="">
+                                    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="120" cy="120" r="120" fill="#0088cc"/>
+                                    <path d="M179.8 73.7L53.7 122.4c-2.6 1-2.4 4.9 0.3 5.6l31.3 8.3 12 39.7c0.7 2.3 3.6 3.1 5.5 1.6l17.1-14 35.7 26.3c2.1 1.6 5.1 0.4 5.7-2.2l22.3-105.7c0.5-2.4-1.8-4.4-4.3-3.7z" fill="#fff"/>
+                                    </svg>
+                              </a>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="info">
+                              <div class="name">Лёша</div>
+                              <div class="phone">+7 999 863 32 49</div>
+                        </div>
+                        <div class="actions">
+                              <a href="https://t.me/stranger13jam" target="_blank" title="">
+                                    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="120" cy="120" r="120" fill="#0088cc"/>
+                                    <path d="M179.8 73.7L53.7 122.4c-2.6 1-2.4 4.9 0.3 5.6l31.3 8.3 12 39.7c0.7 2.3 3.6 3.1 5.5 1.6l17.1-14 35.7 26.3c2.1 1.6 5.1 0.4 5.7-2.2l22.3-105.7c0.5-2.4-1.8-4.4-4.3-3.7z" fill="#fff"/>
+                                    </svg>
+                              </a>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+
+      <!-- <script>
+      const container = document.getElementById("falling");
+      const emoji = "❤️";
+      const number = 40;
+
+      for (let i = 0; i < number; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerText = emoji;
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = 4 + Math.random() * 6 + "s";
+            heart.style.fontSize = 24 + Math.random() * 20 + "px";
+            heart.style.animationDelay = Math.random() * 5 + "s";
+            container.appendChild(heart);
+      }
+      </script> -->
+</body>
+</html>
