@@ -6,15 +6,16 @@
       <title>Приглашение на свадьбу</title>
       <style>
             body {
-                  margin: 0;
+			margin: 100px 0px;
                   padding: 0;
 			position: relative;
 			width: 50%;
 			left: 25%;
-                  /* background: linear-gradient(to bottom, #fff0f5, #ffe4e1); */
-                  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			/* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+			color: #333;
 			text-align: center;
-			margin: 24px 0;
             }
 
 		.highlight {
@@ -37,7 +38,7 @@
 			flex: 1;
 			gap: 16px;
 		}
-
+		
 		.countdown-row {
 			flex-direction: row !important;
 			justify-content: center;
@@ -245,6 +246,7 @@
 
 		@media screen and (max-width: 1366px) {
 			body {
+				margin: 50px 0px;
 				width: 95%;
 				left: 2.5%;
 			}
@@ -261,6 +263,10 @@
 
 			.column {
 				width: 100%;
+			}
+
+			.countdown-row {
+				gap: 24px;
 			}
 
 			.empty-row {
@@ -317,14 +323,9 @@
                   }
             }
       </style>
-	<!-- <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=YOUR_API_KEY"></script> -->
-	 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 </head>
 <body>
-      <div class="block" id="greeting">
-		<h1>Приглашение на свадьбу</h1>
-	</div>
-
       <div class="block" id="title">
 		<div class="row">
 			<div class="column">
