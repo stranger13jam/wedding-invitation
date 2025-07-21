@@ -11,9 +11,7 @@
 			position: relative;
 			width: 50%;
 			left: 25%;
-                  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-			font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-			/* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+			font-family: Helvetica, Geneva, Verdana, sans-serif;
 			color: #333;
 			text-align: center;
             }
@@ -27,6 +25,11 @@
 			color: lightgray;
 		}
 
+		.block {
+			margin: 32px 0;
+			padding: 16px 0;
+		}
+
 		.row {
 			display: flex;
 			flex-direction: row;
@@ -37,6 +40,14 @@
 		.column {
 			flex: 1;
 			gap: 16px;
+		}
+
+		.column-bordered {
+			font-size: 1em;
+			line-height: 1.7;
+			padding: 16px;
+			border-radius: 32px;
+			border: #fff9f8 2px solid;
 		}
 		
 		.countdown-row {
@@ -68,8 +79,7 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0;
-			font-size: 14px;
-			color: #333;
+			font-size: 0.9em;
 			line-height: 1.7;
 		}
 
@@ -79,7 +89,10 @@
 
 		#details .info strong {
 			font-weight: 700;
-			color: #333;
+		}
+
+		#extra_details p {
+			margin: 32px 0;
 		}
 
 		.empty-row {
@@ -91,13 +104,12 @@
 			max-width: 400px;
 			margin: 10px auto;
 			border-collapse: collapse;
-			font-family: 'Segoe UI', sans-serif;
 			box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 		}
 
 		.calendar caption {
 			text-align: center;
-			font-size: 24px;
+			font-size: 1em;
 			font-weight: bold;
 			color: #b76e79;
 			margin-bottom: 10px;
@@ -115,7 +127,6 @@
 			padding: 12px;
 			border: 1px solid #f0e0e0;
 			background-color: #fff9f8;
-			color: #333;
 		}
 
 		.calendar td.empty {
@@ -132,13 +143,13 @@
 		}
 
 		.time-unit {
-			font-size: 48px;
+			font-size: 4em;
 			font-weight: bold;
 			color: #B76E79;
 		}
 
 		.time-unit-label {
-			font-size: 16px;
+			font-size: 1em;
 			color: #555;
 		}
 
@@ -164,7 +175,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			font-size: 120%;
+			font-size: 1.8em;
 			color: #b76e79;
 			flex-shrink: 0;
 			z-index: 1;
@@ -173,7 +184,7 @@
 		}
 
 		.stepper .step .time {
-			font-size: 120%;
+			font-size: 1.3em;
 			color: #b76e79;
 			margin-right: 20px;
 			white-space: nowrap;
@@ -185,8 +196,7 @@
 			border-left: 4px solid #f4c4c4;
 			padding: 10px 15px;
 			border-radius: 6px;
-			font-size: 100%;
-			color: #333;
+			font-size: 0.9em;
 			flex-grow: 1;
 			text-align: left;
 		}
@@ -212,16 +222,13 @@
 		.row-contacts .info {
 			display: flex;
 			flex-direction: column;
-			/* font-size: 16px; */
-			font-size: 80%;
-			color: #444;
+			font-size: 1em;
 		}
 
 		.row-contacts .info .name {
 			font-weight: bold;
-			/* font-size: 18px; */
+			font-size: 1.05em;
 			margin-bottom: 4px;
-			font-size: 100%;
 			text-align: left;
 		}
 
@@ -249,14 +256,16 @@
 		@media screen and (max-width: 1366px) {
 			body {
 				margin: 50px 0px;
-				width: 80%;
-				left: 10%;
+				width: 90%;
+				left: 5%;
 			}
 		}
 
 		@media screen and (max-width: 600px) {
 			body {
 				overflow-x: hidden;
+				width: 100%;
+				left: 0%;
 			}
 
 			.row {
@@ -308,7 +317,7 @@
             .heart {
                   position: absolute;
                   top: -50px;
-                  font-size: 32px;
+                  font-size: 2em;
                   animation-name: fall;
                   animation-timing-function: linear;
                   animation-iteration-count: infinite;
@@ -341,7 +350,7 @@
 		</div>
 		<div class="row">
 			<div class="column">
-				<h3>И хотим пригласить <span class="highlight">тебя</span> разделить с нами радость от этого события</h3>
+				<h3>И хотим пригласить <span class="highlight">тебя</span> разделить с нами радость этого события</h3>
 				<h2>🪩🫧🍸🤍🥂🫧✧˖°</h2>
 			</div>
 		</div>
@@ -475,160 +484,58 @@
             <div class="stepper">
                   <div class="step">
                         <div class="icon">🧑‍🤝‍🧑</div>
-                        <div class="time">14:00</div>
-                        <div class="desc">Сбор гостей</div>
+                        <div class="time">14:30</div>
+                        <div class="desc">Вы собираетесь, мы вас встречаем</div>
                   </div>
                   <div class="divider"></div>
                   <div class="step">
                         <div class="icon">💒</div>
-                        <div class="time">15:00</div>
-                        <div class="desc">Церемония</div>
+                        <div class="time">15:30</div>
+                        <div class="desc">Мы говорим ‟ДА”</div>
                   </div>
                   <div class="divider"></div>
                   <div class="step">
                         <div class="icon">🍽️</div>
-                        <div class="time">16:00</div>
-                        <div class="desc">Банкет</div>
+                        <div class="time">16:30</div>
+                        <div class="desc">Наконец-то трапезничаем</div>
                   </div>
                   <div class="divider"></div>
                   <div class="step">
                         <div class="icon">🎉</div>
-                        <div class="time">19:00</div>
-                        <div class="desc">Вечеринка и танцы</div>
+                        <div class="time">17:30</div>
+                        <div class="desc">Развлекаемся и танцуем</div>
                   </div>
                   <div class="divider"></div>
                   <div class="step">
                         <div class="icon">🌙</div>
-                        <div class="time">22:00</div>
-                        <div class="desc">Завершение вечера</div>
+                        <div class="time">22:30</div>
+                        <div class="desc">Прощаемся и баиньки</div>
                   </div>
             </div>
       </div>
 
       <div class="block" id="dresscode">
             <h1>Дресс-код</h1>
-		<div class="column">
-			<div class="row">
-				Наш дресс-код в пастельных тонах.
-				Просим воздержаться от белого, чёрного и красного цветов.
-				<br/>
-				А ниже - цветовая гамма для вдохновения.
-			</div>
-			<div class="row">
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-				<div class="dresscode">
-					<div class="colors">
-						<div class="item">
-							<div class="circle" style="background-color: #ffffff;"></div>
-							<div>Белый</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				Но самое главное - прихватите с собой хорошее настроение!
-			</div>
+		<div class="column-bordered">
+			<p>Просим <strong>воздержаться от</strong> следующих цветов:</p>
+			<p class="highlight">белого и похожих на белый, ярко-красного, кислотных</p>
+			<p>Если сомневаетесь насчёт выбранного наряда, обратитесь к Ане 😉</p>
 		</div>
       </div>
 
       <div class="block" id="extra_details">
             <h1>Детали</h1>
-            <div class="column">
-                  Здесь будут какие-то детали по нашему мероприятию
+            <div class="column-bordered">
+			<p>Мы бы хотели, чтобы вы вдоволь повеселились и отдохнули, поэтому решили устроить праздник исключительно для совершеннолетних гостей</p>
+			<p>Лучшим подарком для нас будут ваши улыбки, тёплые слова и крепкие объятия</p>
+			<p>Но если вы хотите сделать нам приятное, то мы будем благодарны, если оно будет размером с конверт и не будет похоже на букет цветов</p>
             </div>
       </div>
 
       <div class="block" id="questionnaire">
-            <iframe width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSey60ENX0HRIQNg0ZWG3ghQu0D5wF-We-lrITbR5IZVhZ9kaA/viewform?embedded=true">
+		<h1>Анкета гостя</h1>
+		<p>Мы будем ждать ваши ответы <strong>до</strong> <span class="highlight">14 сентября 2025 года</span></p>
+            <iframe width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSey60ENX0HRIQNg0ZWG3ghQu0D5wF-We-lrITbR5IZVhZ9kaA/viewform?embedded=true">
                   Загрузка…
             </iframe>
       </div>
