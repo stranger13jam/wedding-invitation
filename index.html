@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Приглашение на свадьбу</title>
+      <style>
+            body {
+			margin: 100px 0px;
+                  padding: 0;
+			position: relative;
+			width: 50%;
+			left: 25%;
+			font-family: Helvetica, Geneva, Verdana, sans-serif;
+			color: #333;
+			text-align: center;
+            }
+
+		.highlight {
+			color: #B76E79;
+			font-weight: bold;
+		}
+
+		.gray {
+			color: lightgray;
+		}
+
+		.block {
+			margin: 32px 0;
+			padding: 16px 0;
+		}
+
+		.row {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+      		gap: 24px;
+		}
+
+		.column {
+			flex: 1;
+			gap: 16px;
+		}
+
+		.column-bordered {
+			font-size: 1em;
+			line-height: 1.7;
+			padding: 16px;
+			border-radius: 32px;
+			border: #fff9f8 2px solid;
+		}
+		
+		.countdown-row {
+			flex-direction: row !important;
+			justify-content: center;
+			gap: 32px;
+		}
+
+		.countdown-row .column {
+			flex: none;
+			width: auto;
+		}
+
+		#map {
+			width: 100%;
+			height: 100%;
+		}
+
+		#details .map-column {
+			flex: 2
+		}
+
+		#details .info-column {
+			flex: 1
+		}
+
+		#details .info {
+			text-align: left;
+			display: flex;
+			flex-direction: column;
+			gap: 0;
+			font-size: 0.9em;
+			line-height: 1.7;
+		}
+
+		#details .info p {
+			margin: 0 0;
+		}
+
+		#details .info strong {
+			font-weight: 700;
+		}
+
+		#extra_details p {
+			margin: 32px 0;
+		}
+
+		.empty-row {
+			margin: 32px 0;
+		}
+
+		.calendar {
+			width: 100%;
+			max-width: 400px;
+			margin: 10px auto;
+			border-collapse: collapse;
+			box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+		}
+
+		.calendar caption {
+			text-align: center;
+			font-size: 1em;
+			font-weight: bold;
+			color: #b76e79;
+			margin-bottom: 10px;
+		}
+
+		.calendar th {
+			background-color: #fde9d9;
+			color: #7a5555;
+			padding: 10px;
+			font-weight: 600;
+		}
+
+		.calendar td {
+			text-align: center;
+			padding: 12px;
+			border: 1px solid #f0e0e0;
+			background-color: #fff9f8;
+		}
+
+		.calendar td.empty {
+			background-color: transparent;
+			border: none;
+		}
+
+		.calendar td.highlight {
+			background: linear-gradient(135deg, #fdf0f3, #fadcd9);
+			border: 2px solid #b76e79;
+			color: #b76e79;
+			font-weight: bold;
+			border-radius: 8px;
+		}
+
+		.time-unit {
+			font-size: 4em;
+			font-weight: bold;
+			color: #B76E79;
+		}
+
+		.time-unit-label {
+			font-size: 1em;
+			color: #555;
+		}
+
+		.stepper {
+			display: flex;
+			flex-direction: column;
+			position: relative;
+		}
+
+		.stepper .step {
+			display: flex;
+			align-items: center;
+			position: relative;
+			width: 100%;
+		}
+
+		.stepper .step .icon {
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			background-color: #fde9d9;
+			border: 2px solid #f4c4c4;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.8em;
+			color: #b76e79;
+			flex-shrink: 0;
+			z-index: 1;
+			margin-right: 10px;
+			position: relative;
+		}
+
+		.stepper .step .time {
+			font-size: 1.3em;
+			color: #b76e79;
+			margin-right: 20px;
+			white-space: nowrap;
+			flex-shrink: 0;
+		}
+
+		.stepper .step .desc {
+			background-color: #fff9f8;
+			border-left: 4px solid #f4c4c4;
+			padding: 10px 15px;
+			border-radius: 6px;
+			font-size: 0.9em;
+			flex-grow: 1;
+			text-align: left;
+		}
+
+		.stepper .divider {
+			width: 2px;
+			height: 60px;
+			margin-left: 24px;
+			background-color: #f4c4c4;
+			z-index: 0;
+		}
+
+		.row-contacts {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			max-width: 60%;
+			margin: 0 auto;
+			padding: 12px 0;
+			border-bottom: 1px solid #f4c4c4;
+		}
+
+		.row-contacts .info {
+			display: flex;
+			flex-direction: column;
+			font-size: 1em;
+		}
+
+		.row-contacts .info .name {
+			font-weight: bold;
+			font-size: 1.05em;
+			margin-bottom: 4px;
+			text-align: left;
+		}
+
+		.row-contacts .info .phone {
+			color: #7a5555;
+		}
+
+		.row-contacts .actions a svg {
+			width: 40px;
+			height: 40px;
+			fill: #0088cc;
+			transition: opacity 0.3s ease;
+		}
+
+		.row-contacts .actions a:hover svg {
+			opacity: 0.8;
+		}
+
+		.no-column {
+			flex-direction: row !important;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		@media screen and (max-width: 1366px) {
+			body {
+				margin: 50px 0px;
+				width: 90%;
+				left: 5%;
+			}
+
+			.block {
+				margin: 8px 0;
+			}
+		}
+
+		@media screen and (max-width: 600px) {
+			body {
+				overflow-x: hidden;
+				width: 90%;
+				left: 5%;
+			}
+
+			h1 {
+				font-size: 1.8em;
+			}
+
+			.row {
+				flex-direction: column;
+			}
+
+			.column {
+				width: 100%;
+			}
+
+			.countdown-row {
+				gap: 16px;
+			}
+
+			.empty-row {
+				margin: 8px 0;
+			}
+
+			.stepper .divider {
+				height: 50px;
+			}
+
+			.time-unit {
+				font-size: 2.8em;
+			}
+
+			.stepper .step .icon {
+				font-size: 1.5em;
+			}
+
+			.stepper .step .time {
+				font-size: 1.1em;
+			}
+
+			#map {
+			    height: 400px;
+			}
+		}
+
+		#title img {
+                  top: 400vh;
+                  width: 100%;
+                  height: auto;
+                  border-radius: 16px;
+                  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			margin: 0 auto;
+			display: block;
+            }
+
+            .falling-container {
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  pointer-events: none;
+                  overflow: hidden;
+                  z-index: 1;
+            }
+
+            .heart {
+                  position: absolute;
+                  top: -50px;
+                  font-size: 2em;
+                  animation-name: fall;
+                  animation-timing-function: linear;
+                  animation-iteration-count: infinite;
+            }
+
+            @keyframes fall {
+                  0% {
+                        transform: translateY(0) rotate(0deg);
+                        opacity: 1;
+                  }
+                  100% {
+                        transform: translateY(100vh) rotate(0deg);
+                        opacity: 0.1;
+                  }
+            }
+      </style>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+</head>
+<body>
+      <div class="block" id="title">
+		<div class="row">
+			<div class="column">
+				<h1>Мы женимся!</h1>
+				<h2 class="highlight">19 октября 2025 года</h2>
+				<h1>👰🏻🤵🏻</h1>
+			</div>
+			<div class="column">
+				<img src="./photo.jpg" alt="photo">
+			</div>
+		</div>
+		<div class="row">
+			<div class="column">
+				<h3>И хотим пригласить <span class="highlight">тебя</span> разделить с нами радость этого события</h3>
+				<h2>🪩🫧🍸🤍🥂🫧✧˖°</h2>
+			</div>
+		</div>
+	</div>
+
+      <div class="block" id="countdown">
+            <h1>До свадьбы осталось</h1>
+		<div class="row countdown-row">
+			<div class="column">
+				<div class="time-unit" id="days">0</div>
+				<div class="time-unit-label">дней</div>
+			</div>
+			<div class="column">
+				<div class="time-unit" id="hours">00</div>
+				<div class="time-unit-label">часов</div>
+			</div>
+			<div class="column">
+				<div class="time-unit" id="minutes">00</div>
+				<div class="time-unit-label">минут</div>
+			</div>
+			<div class="column">
+				<div class="time-unit" id="seconds">00</div>
+				<div class="time-unit-label">секунд</div>
+			</div>
+		</div>
+		<script>
+			function updateCountdown(targetDate) {
+				const daysEl = document.getElementById('days');
+				const hoursEl = document.getElementById('hours');
+				const minutesEl = document.getElementById('minutes');
+				const secondsEl = document.getElementById('seconds');
+
+				const target = new Date(targetDate).getTime();
+
+				setInterval(() => {
+				const now = new Date().getTime();
+				const diff = target - now;
+
+				if (diff <= 0) {
+					daysEl.innerHTML = '0';
+					hoursEl.innerHTML = '00';
+					minutesEl.innerHTML = '00';
+					secondsEl.innerHTML = '00';
+					return;
+				}
+
+				const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+				const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+				const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+				const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+				daysEl.innerHTML = days;
+				hoursEl.innerHTML = String(hours).padStart(2, '0');
+				minutesEl.innerHTML = String(minutes).padStart(2, '0');
+				secondsEl.innerHTML = String(seconds).padStart(2, '0');
+
+				}, 1000);
+			}
+
+			updateCountdown("2025-10-19 14:00:00");
+		</script>
+      </div>
+
+      <div class="block" id="details">
+            <h1>Где и когда</h1>
+		<div class="row">
+			<div class="column map-column">
+				<div id="map"></div>
+				<script>
+					ymaps.ready(init);
+
+					function init() {
+						const location = [55.876142, 37.436041];
+						const map = new ymaps.Map("map", {
+							center: location,
+							zoom: 13
+						});
+
+						const placemark = new ymaps.Placemark(location, {
+							balloonContent: 'Место проведения свадьбы'
+						});
+
+						map.geoObjects.add(placemark);
+					}
+				</script>
+			</div>
+			<div class="column info-rolumn">
+				<div class="row">
+					<div class="column info">
+						<p class="highlight">Усадьба «Лесной берег»</p>
+						<p>Большой Панорамный Зал</p>
+						<div style="margin: 4px 0;"></div>
+						<p><strong>Адрес:</strong> город Москва, улица Свободы, дом 78Б, строение 1</p>
+						<p><strong>Координаты:</strong> 55.876142, 37.436041</p>
+					</div>
+				</div>
+				<div class="row empty-row"></div>
+				<!-- <div class="row">
+					<a href="https://yandex.ru/maps/-/CHgeN28N">Как проехать</a>
+				</div> -->
+				<div class="row">
+					<table class="calendar">
+						<caption>Октябрь 2025</caption>
+						<tr>
+							<th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th>
+						</tr>
+						<tr>
+							<td class="empty"></td><td class="empty"></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+						</tr>
+						<tr>
+							<td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+						</tr>
+						<tr>
+							<td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td class="highlight">19</td>
+						</tr>
+						<tr>
+							<td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+						</tr>
+						<tr>
+							<td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td class="empty"></td><td class="empty"></td>
+						</tr>
+					</table>
+				</div>
+				<div class="row gray">
+					19 октября 2025 года - сохраняем дату
+				</div>
+			</div>
+		</div>
+      </div>
+
+      <div class="block" id="schedule">
+            <h1>План дня</h1>
+            <div class="stepper">
+                  <div class="step">
+                        <div class="icon">🧑‍🤝‍🧑</div>
+                        <div class="time">14:30</div>
+                        <div class="desc">Вы собираетесь, мы вас встречаем</div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="step">
+                        <div class="icon">💒</div>
+                        <div class="time">15:30</div>
+                        <div class="desc">Мы говорим «ДА»</div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="step">
+                        <div class="icon">🍽️</div>
+                        <div class="time">16:30</div>
+                        <div class="desc">Наконец-то трапезничаем</div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="step">
+                        <div class="icon">🎉</div>
+                        <div class="time">17:30</div>
+                        <div class="desc">Развлекаемся и танцуем</div>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="step">
+                        <div class="icon">🌙</div>
+                        <div class="time">22:30</div>
+                        <div class="desc">Прощаемся и баиньки</div>
+                  </div>
+            </div>
+      </div>
+
+      <div class="block" id="dresscode">
+            <h1>Дресс-код</h1>
+		<div class="column-bordered">
+			<p>Просим <strong>воздержаться от</strong> следующих цветов:</p>
+			<p class="highlight">белого и похожих на белый, ярко-красного, кислотных</p>
+			<p>P.S. Белые рубашки - можно</p>
+			<p>Если сомневаетесь насчёт выбранного наряда, обратитесь к Ане 😉</p>
+		</div>
+      </div>
+
+      <div class="block" id="extra_details">
+            <h1>Детали</h1>
+            <div class="column-bordered">
+			<p>Мы бы хотели, чтобы вы вдоволь повеселились и отдохнули, поэтому решили устроить праздник исключительно для совершеннолетних гостей</p>
+			<p>Лучшим подарком для нас будут ваши улыбки, тёплые слова и крепкие объятия</p>
+			<p>Но если вы хотите сделать нам приятное, то мы будем благодарны, если оно будет размером с конверт и не будет похоже на букет цветов</p>
+            </div>
+      </div>
+
+      <div class="block" id="questionnaire">
+		<h1>Анкета гостя</h1>
+		<p>Мы будем ждать ваши ответы <span class="highlight">до 14 сентября 2025 года</span></p>
+            <iframe width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSey60ENX0HRIQNg0ZWG3ghQu0D5wF-We-lrITbR5IZVhZ9kaA/viewform?embedded=true">
+                  Загрузка…
+            </iframe>
+      </div>
+
+      <div class="block" id="contacts">
+            <h1>Контакты</h1>
+            <div class="row">
+                  <caption>Вы всегда можете связаться с нами, чтобы задать вопрос или позвать на чашечку чая:</caption>
+            </div>
+		<br/>
+            <div class="contacts">
+                  <div class="row row-contacts no-column">
+                        <div class="info">
+                              <div class="name">Аня</div>
+                              <div class="phone">+7 916 388 02 33</div>
+                        </div>
+                        <div class="actions">
+                              <a href="https://t.me/annajkf" target="_blank" title="">
+                                    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="120" cy="120" r="120" fill="#0088cc"/>
+                                    <path d="M179.8 73.7L53.7 122.4c-2.6 1-2.4 4.9 0.3 5.6l31.3 8.3 12 39.7c0.7 2.3 3.6 3.1 5.5 1.6l17.1-14 35.7 26.3c2.1 1.6 5.1 0.4 5.7-2.2l22.3-105.7c0.5-2.4-1.8-4.4-4.3-3.7z" fill="#fff"/>
+                                    </svg>
+                              </a>
+                        </div>
+                  </div>
+                  <div class="row row-contacts no-column">
+                        <div class="info">
+                              <div class="name">Лёша</div>
+                              <div class="phone">+7 999 863 32 49</div>
+                        </div>
+                        <div class="actions">
+                              <a href="https://t.me/stranger13jam" target="_blank" title="">
+                                    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="120" cy="120" r="120" fill="#0088cc"/>
+                                    <path d="M179.8 73.7L53.7 122.4c-2.6 1-2.4 4.9 0.3 5.6l31.3 8.3 12 39.7c0.7 2.3 3.6 3.1 5.5 1.6l17.1-14 35.7 26.3c2.1 1.6 5.1 0.4 5.7-2.2l22.3-105.7c0.5-2.4-1.8-4.4-4.3-3.7z" fill="#fff"/>
+                                    </svg>
+                              </a>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+	<div class="falling-container" id="falling"></div>
+      <script>
+      const container = document.getElementById("falling");
+      const emoji = "❤️";
+      const number = 10;
+
+      for (let i = 0; i < number; i++) {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerText = emoji;
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = 4 + Math.random() * 6 + "s";
+            heart.style.fontSize = 24 + Math.random() * 20 + "px";
+            heart.style.animationDelay = Math.random() * 5 + "s";
+            container.appendChild(heart);
+      }
+      </script>
+</body>
+</html>
